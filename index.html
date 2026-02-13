@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Valentine Mission</title>
+  <style>
+    :root{
+      --yes-scale: 1;
+      --bg1: #ff4d6d;
+      --bg2: #ff8fab;
+      --bg3: #ffd6e0;
+      --ink: #1f2937;
+    }
+
+    * { box-sizing: border-box; }
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      overflow: hidden;
+      background: radial-gradient(circle at 20% 10%, #fff 0 12%, transparent 13%),
+                  radial-gradient(circle at 80% 20%, #fff 0 10%, transparent 11%),
+                  linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+      background-size: 220px 220px, 260px 260px, 100% 100%;
+      animation: bgShift 8s ease-in-out infinite alternate;
+      display:grid;
+      place-items:center;
+      padding: 18px;
+    }
+
+    @keyframes bgShift{
+      from { filter: hue-rotate(0deg) saturate(1.1); }
+      to   { filter: hue-rotate(18deg) saturate(1.25); }
+    }
+
+    .card{
+      width: min(620px, 100%);
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+      padding: 26px 22px;
+      text-align:center;
+      position: relative;
+    }
+
+    .badge{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(0,0,0,0.06);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.2px;
+    }
+
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1.1;
+    }
+
+    #prompt{
+      margin: 0 0 16px;
+      font-size: clamp(16px, 2.5vw, 20px);
+    }
+
+    .buttons{
+      display:flex;
+      justify-content:center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    button{
+      border: 0;
+      border-radius: 14px;
+      padding: 12px 18px;
+      font-size: 18px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform 140ms ease, filter 140ms ease, box-shadow 140ms ease;
+      user-select: none;
+    }
+
+    button:active{ transform: translateY(1px) scale(0.99); }
+
+    #yesBtn{
+      background: linear-gradient(135deg, #ff0054, #ff7aa2);
+      color: white;
+      box-shadow: 0 12px 28px rgba(255,0,84,0.35);
+      transform: scale(var(--yes-scale));
+      transform-origin: center;
+    }
+    #yesBtn:hover{ filter: brightness(1.05); }
+
+    #noBtn{
+      background: rgba(17,24,39,0.08);
+      color: #111827;
+      box-shadow: 0 10px 18px rgba(0,0,0,0.08);
+    }
+    #noBtn:hover{ filter: brightness(1.03); }
+
+    .row{
+      margin-top: 14px;
+      display:flex;
+      gap: 10px;
+      justify-content:center;
+      flex-wrap: wrap;
+    }
